@@ -1,0 +1,4 @@
+rootProject.name = 'webflux'
+include 'movieInfo'
+include 'basic'
+

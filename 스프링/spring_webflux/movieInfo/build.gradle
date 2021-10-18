@@ -1,0 +1,17 @@
+jar {
+    enabled = true
+}
+bootJar {
+    enabled = true
+}
+
+
+dependencies {
+    testImplementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+}
+
+test {
+    useJUnitPlatform()
+}

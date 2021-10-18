@@ -1,0 +1,14 @@
+jar {
+    enabled = true
+}
+bootJar {
+    enabled = true
+}
+
+dependencies {
+
+}
+
+test {
+    useJUnitPlatform()
+}
