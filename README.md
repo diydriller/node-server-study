@@ -1,8 +1,7 @@
 # 스프링
 ### 코드 정리
 * [spring_springboot](./스프링/spring_springboot)
-* [spring_cloud](./스프링/spring_cloud)
-* [spring_camel](./스프링/spring_camel)
+
 * [spring_webflux](./스프링/spring_webflux)
 ### 개념 정리
 * [spring란](./스프링/spring.md)
@@ -13,6 +12,12 @@
 * [node_auth](./인증/node_auth)
 * [spring_security](./인증/spring_security)
 ### 개념정리
+
+# msa
+### 코드 정리
+* [spring_cloud](./msa/spring_cloud)
+* [spring_camel](./msa/spring_camel)
+### 개념 정리
 
 # 자바
 ### 코드 정리
