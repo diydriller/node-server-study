@@ -31,7 +31,9 @@
 
 # 데이터베이스
 ### 코드 정리
+* [spring_redis](./데이터베이스/spring_redis)
 * [redis_sentinel](./데이터베이스/redis_sentinel) 
+
 ### 개념 정리
 
 
