@@ -1,0 +1,8 @@
+hello:
+  userName: hyun
+
+server:
+  port: 8080
+
+
+

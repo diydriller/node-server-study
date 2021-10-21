@@ -1,6 +1,4 @@
-package com.spring.springboot.hello;
-
-import lombok.Data;
+package com.spring.springboot.autoconfiguration.hello;
 
 import java.util.Properties;
 
