@@ -1,4 +1,4 @@
-###entity
+### entity
 * @builder 사용시 생성자 에러발생</br>
 / @Builder는 기본적으로 @AllArgConstructor를 사용하는데 다른 생성자를 명시적으로 사용한게 원인</br>
 / @AllArgConstructor 추가해서 해결
@@ -7,7 +7,7 @@
 / 연관관계를 가진 필드가 양방향으로 있는 경우 @ToString 사용하면 순환참조가 발생하는게 원인</br>
 / @ToString시 연관관계를 가진 필드는 제외해준다.
 
-###jpa
+### jpa
 * 1:N인 연관관계에서 1인 엔티티에서 fetch join 사용시 pagination까지 해야한다면 
 countQuery를 사용한다. 이때 application level에서 pagination을 하기때문에 
 경고문구가 발생한다.</br>
