@@ -3,6 +3,7 @@ package com.spring.redis.service;
 import com.spring.redis.model.User;
 import com.spring.redis.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 

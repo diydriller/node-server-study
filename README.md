@@ -18,7 +18,7 @@
 * [spring_redis](./데이터베이스/spring_redis)
 * [redis_sentinel](./데이터베이스/redis_sentinel)
 #### 개념 정리
-
+* [캐시](./데이터베이스/cache.md)
 ---
 
 # 자바
