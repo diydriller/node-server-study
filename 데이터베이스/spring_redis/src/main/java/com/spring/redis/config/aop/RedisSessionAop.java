@@ -1,4 +1,4 @@
-package com.spring.redis.config;
+package com.spring.redis.config.aop;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring.redis.dto.CreateUserRequestDto;
@@ -26,10 +26,10 @@ public class RedisSessionAop {
     @Autowired
     private UserRepository userRepository;
 
-    @Pointcut("@annotation(com.spring.redis.config.RedisSessionCheck)")
+    @Pointcut("@annotation(com.spring.redis.config.aop.RedisSessionCheck)")
     public void redisSessionCheck(){};
 
-    @Pointcut("@annotation(com.spring.redis.config.RedisSessionSet)")
+    @Pointcut("@annotation(com.spring.redis.config.aop.RedisSessionSet)")
     public void redisSessionSet(){};
 
     @Before("redisSessionCheck()")
