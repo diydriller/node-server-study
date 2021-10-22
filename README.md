@@ -24,7 +24,7 @@
 # 자바
 #### 코드 정리
 * [java_thread](./자바/java_thread)
-* [java_io](./자바/jave_io)
+* [java_io](./자바/java_io)
 #### 개념 정리
 * [io](./자바/io.md)
 
