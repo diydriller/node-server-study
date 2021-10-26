@@ -18,7 +18,7 @@
 * [spring_redis](./데이터베이스/spring_redis)
 * [redis_sentinel](./데이터베이스/redis_sentinel)
 #### 개념 정리
-* [캐시](./데이터베이스/cache.md)
+* [캐시전략](./데이터베이스/cache.md)
 
 ---
 
@@ -36,7 +36,7 @@
 * [node_auth](보안/node_auth)
 * [spring_security](보안/spring_security)
 #### 개념정리
-* [sql injection](./보안/sql_injection.md)
+* [sql injection란](./보안/sql_injection.md)
 
 ---
 
@@ -44,7 +44,9 @@
 #### 코드 정리
 * [spring_cloud](./msa/spring_cloud)
 * [spring_camel](./msa/spring_camel)
+* [spring_nginx](./msa/spring_nginx)
 #### 개념 정리
+* [nginx란](./msa/nginx.md)
 
 ---
 
