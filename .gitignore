@@ -13,4 +13,7 @@ application.properties
 gradlew
 gradle/
 
-.{gif, jpg, jpeg, png}
+.gif
+.jpg
+.jpeg
+.png
