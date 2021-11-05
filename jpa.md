@@ -15,3 +15,7 @@ countQuery를 사용한다. 이때 application level에서 pagination을 하기�
 가져온다. 이때 N+1문제를 해결하기위해서 개별설정인 @BatchSize나 전역설정인 
 spring.jpa.hibernate.default_batch_fetch_size를 설정하면 설정한 개수만큼
 프록시객체를 한번에 조회해준다.
+
+# querydsl
+* Q엔티티를 찾지 못하는 에러발생</br>
+/ Q엔티티클래스가 있는 경로를 java 컴파일러가 찾지 못하는 것이 원인으로 경로설정을 한다. 
