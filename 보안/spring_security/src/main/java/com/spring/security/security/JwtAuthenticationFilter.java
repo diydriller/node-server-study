@@ -51,9 +51,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
             // AuthUserDetailsService 의 loadByUsername 함수가 실행된다.
             Authentication authentication=
                     authenticationManager.authenticate(authenticationToken);
-
             return authentication;
-
         }
         catch(IOException e){
             e.printStackTrace();

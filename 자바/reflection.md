@@ -1,5 +1,5 @@
 # reflection
-* 런타임시에 객체내용을 조사하거나 해당 객체의 임의의 메서드를 호출할 수 있는 것을 
+* 런타임시에 객체의 필드명이나 값을 알아내거나 메서드를 호출할 수 있는 것을 
 말한다.
 * 배열의 길이를 변경하는 메서드에서 새로운 배열 Object[]을 해당클래스의 배열로
 cast하는 것이 불가능하므로 java.lang.reflect.Array 클래스의 newInstance 메서드
@@ -11,6 +11,7 @@ cast하는 것이 불가능하므로 java.lang.reflect.Array 클래스의 newIns
         if(!cl.isArray()) return null;
 
         int length= Array.getLength(array);
+        // 배열 타입을 알 수 있음 
         Class<?> componentType = cl.getComponentType();
         Object newArray=Array.newInstance(componentType,newLength);
         

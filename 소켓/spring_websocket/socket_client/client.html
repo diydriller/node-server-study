@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <input type='text'><input type='button' value='send' onclick='OnClick()'>
+    </body>
+    <script>
+        var ws = new WebSocket('ws://localhost:8080/chat');
+        ws.onopen = (event) => {
+            console.log('socket connected');
+        }
+        ws.onmessage = (event) => {
+            console.log(event.data);
+        }
+        function OnClick(){
+            let sendData = {event:'send',data:'hello server'};
+            ws.send(JSON.stringify(sendData));
+        }
+    </script>
+</html>

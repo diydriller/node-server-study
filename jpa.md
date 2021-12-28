@@ -1,21 +1,22 @@
-# entity
-* @builder 사용시 생성자 에러발생</br>
-/ @Builder는 기본적으로 @AllArgConstructor를 사용하는데 다른 생성자를 명시적으로 사용한게 원인</br>
-/ @AllArgConstructor 추가해서 해결
+# JPA
 
-* @ToString 사용시 stack overflow 에러발생</br>
-/ 연관관계를 가진 필드가 양방향으로 있는 경우 @ToString 사용하면 순환참조가 발생하는게 원인</br>
-/ @ToString시 연관관계를 가진 필드는 제외해준다.
+## 1. 엔티티
 
-# jpa
-* 1:N인 연관관계에서 1인 엔티티에서 fetch join 사용시 pagination까지 해야한다면 
-countQuery를 사용한다. 이때 application level에서 pagination을 하기때문에 
-경고문구가 발생한다.</br>
-/ fetch join 대신 join을 사용하고 지연로딩으로 프록시객체를
-가져온다. 이때 N+1문제를 해결하기위해서 개별설정인 @BatchSize나 전역설정인 
-spring.jpa.hibernate.default_batch_fetch_size를 설정하면 설정한 개수만큼
-프록시객체를 한번에 조회해준다.
+* @Builder는 기본적으로 @AllArgConstructor를 사용하기 때문에 다른 생성자를 사용시 에러가
+발생한다. @AllArgConstructor를 추가해서 해결한다.
 
-# querydsl
-* Q엔티티를 찾지 못하는 에러발생</br>
-/ Q엔티티클래스가 있는 경로를 java 컴파일러가 찾지 못하는 것이 원인으로 경로설정을 한다. 
+* @ToString 사용시 연관관계를 가진 필드가 양방향으로 매핑되어있는 경우 순환참조가 발생해서
+stackoverflow 에러가 발생한다. 양방향으로 매핑된 연관관계를 가진 필드는 제외해서 해결한다. 
+
+* 엔티티 객체에서 프록시가 들어있는 필드로 로직을 수행할 경우 에러가 발생할 수 있기때문에
+dto로 변환해서 사용한다.
+
+## 2. 데이터베이스
+
+* collection fetch join 사용시 pagination까지 한다면 데이터를 전부 가져와서
+application level에서 limit을 적용하기때문에 부하가 심해진다.
+이를 해결하기위해서 지연로딩을 사용하고 N+1문제를 해결하기위해서 개별설정인 
+@BatchSize나 전역설정인 spring.jpa.hibernate.default_batch_fetch_size를 
+설정하면 설정한 개수만큼 한번에 조회해준다.   
+
+

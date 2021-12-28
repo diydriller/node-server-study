@@ -1,6 +1,19 @@
 public abstract class Life {
-    void print(){
-        System.out.println("printed");
+
+    private int age;
+    public abstract void move();
+
+    public Life(int age) {
+        this.age = age;
     }
-    abstract void method();
+    public void age(){
+        age++;
+    }
+
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
 }

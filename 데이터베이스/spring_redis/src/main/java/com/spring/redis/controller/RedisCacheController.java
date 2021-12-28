@@ -4,15 +4,13 @@ import com.spring.redis.model.User;
 import com.spring.redis.repository.UserRepository;
 import com.spring.redis.service.UserService;
 import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+
 
 @RestController
 @RequiredArgsConstructor
@@ -20,6 +18,7 @@ public class RedisCacheController {
     private final UserRepository userRepository;
     private final UserService userService;
 
+    // 유저 조회
     @GetMapping("/user/{userId}")
     ResponseEntity<User> findUser(
             @PathVariable("userId") Long userId
@@ -29,7 +28,7 @@ public class RedisCacheController {
         User user=userRepository.findById(userId).get();
 
         long endTime=System.currentTimeMillis();
-        System.out.println((endTime-startTime));
+        System.out.println("process time : "+(endTime-startTime));
 
 
         return ResponseEntity
@@ -37,6 +36,7 @@ public class RedisCacheController {
                 .body(user);
     }
 
+    // 유저 캐시로 조회
     @GetMapping("cache/user/{userId}")
     ResponseEntity<User> findCacheUser(
             @PathVariable("userId") Long userId
@@ -46,7 +46,7 @@ public class RedisCacheController {
         User user=userService.findUser(userId).get();
 
         long endTime=System.currentTimeMillis();
-        System.out.println((endTime-startTime));
+        System.out.println("process time : "+(endTime-startTime));
 
         return ResponseEntity
                 .status(HttpStatus.OK)

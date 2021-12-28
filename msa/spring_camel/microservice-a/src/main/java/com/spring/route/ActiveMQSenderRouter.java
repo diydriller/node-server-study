@@ -22,5 +22,6 @@ public class ActiveMQSenderRouter extends RouteBuilder {
                 .to("activemq:active-mq-xml");
 
 
+
     }
 }

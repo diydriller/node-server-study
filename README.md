@@ -1,5 +1,7 @@
 ## 에러정리
 * [jpa](./jpa.md)
+* [querydsl](./querydsl.md)
+* [spring](./spring.md)
 
 ---
 

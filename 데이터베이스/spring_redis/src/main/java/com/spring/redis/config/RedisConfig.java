@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
+@RequiredArgsConstructor
 public class RedisConfig{
 
     @Value("${redis.host}")
@@ -30,6 +31,7 @@ public class RedisConfig{
     @Value("${redis.port}")
     private int redisPort;
 
+    private final ObjectMapper objectMapper;
 
     @Bean
     public RedisConnectionFactory redisConnectionFactory() {
@@ -44,7 +46,7 @@ public class RedisConfig{
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(redisConnectionFactory());
         redisTemplate.setKeySerializer(new StringRedisSerializer());
-        redisTemplate.setValueSerializer(new StringRedisSerializer());
+        redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer(objectMapper));
         redisTemplate.setEnableTransactionSupport(true);
         return redisTemplate;
     }
