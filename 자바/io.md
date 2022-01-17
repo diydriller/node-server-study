@@ -1,4 +1,4 @@
-# serialization
+## Serialization
 * 객체를 byte array로 변환하는 것을 직렬화라고 하고 이를 위해서는 serializable 인턴페이스를
 구현해야 한다.
 * 객체가 직렬화될때 클래스 이름과 serial number를 저장하는데 serial number는

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        GET / : <input id="root" type="text" />
+    </body>
+    <script>
+        fetch("http://localhost:8080")
+            .then((response)=>response.json())
+            .then((data)=>{
+                console.log(data);
+                console.log(location.origin);
+                document.getElementById("root").value=data["message"];
+            })
+            .catch((error)=>{
+                console.log(error);
+            });
+    </script>
+</html>

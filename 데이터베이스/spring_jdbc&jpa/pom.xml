@@ -5,6 +5,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>jpa</module>
+        <module>jdbc</module>
     </modules>
     <parent>
 		<groupId>org.springframework.boot</groupId>
@@ -37,6 +38,8 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- h2 -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>

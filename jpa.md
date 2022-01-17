@@ -13,10 +13,16 @@ dto로 변환해서 사용한다.
 
 ## 2. 데이터베이스
 
+* ### 연결
+* h2 연결시 처음에 embedded모드로 jdbc:h2:~/database명으로 database를 생성하고
+이후로 server모드로 jdbc:h2:tcp://localhost/~/database명으로 접속한다.
+
+* ### 사용 
 * collection fetch join 사용시 pagination까지 한다면 데이터를 전부 가져와서
 application level에서 limit을 적용하기때문에 부하가 심해진다.
 이를 해결하기위해서 지연로딩을 사용하고 N+1문제를 해결하기위해서 개별설정인 
 @BatchSize나 전역설정인 spring.jpa.hibernate.default_batch_fetch_size를 
-설정하면 설정한 개수만큼 한번에 조회해준다.   
+설정하면 설정한 개수만큼 한번에 조회해준다.  
+
 
 
