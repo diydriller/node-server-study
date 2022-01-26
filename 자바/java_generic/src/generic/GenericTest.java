@@ -1,8 +1,10 @@
+package generic;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Test {
+public class GenericTest {
 
     static <T> List<T> pickList(T a) {
         return Arrays.asList(a);

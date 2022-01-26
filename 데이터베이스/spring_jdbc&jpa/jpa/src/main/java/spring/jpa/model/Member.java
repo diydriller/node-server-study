@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Entity
 @Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@ToString(of = {"id", "username", "age"})
+@ToString(of = {"id", "username", "age","popularity"})
 public class Member {
     @Id
     @GeneratedValue
@@ -19,6 +19,7 @@ public class Member {
     @JoinColumn(name = "team_id")
     private Team team;
 
+    private Long popularity;
 
     public Member(String username, int age, Team team) {
         this.username = username;

@@ -27,6 +27,9 @@
             <version>${querydsl.version}</version>
         </dependency>
 
+
+
+
     </dependencies>
     <artifactId>jpa</artifactId>
 

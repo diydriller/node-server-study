@@ -34,4 +34,37 @@ em.persist() 호출 전 DB의 sequence object에서 기본키를 가져온다.
         @QueryHints({@QueryHint(name = "javax.persistence.lock.scope", value = "EXTENDED")})
 ```
 
-
+## 인터뷰
+* ### JPA에서 repository 인터페이스는 어떻게 인스턴스화 되나?
+* LocalContainerEntityManagerFactoryBean에서 hibernate property , datasource ,
+엔티티 위치 패키지를 지정해주고 hibernate 기반으로 동작한다는 JpaVendor를 설정한다.
+```java
+      @Bean
+      public DataSource dataSource() {
+        EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
+        return builder.setType(EmbeddedDatabaseType.HSQL).build();
+      }
+    
+      @Bean
+      public EntityManagerFactory entityManagerFactory() {
+    
+        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        vendorAdapter.setGenerateDdl(true);
+    
+        LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
+        factory.setJpaVendorAdapter(vendorAdapter);
+        factory.setPackagesToScan("com.spring.model");
+        factory.setDataSource(dataSource());
+        factory.afterPropertiesSet();
+    
+        return factory.getObject();
+      }
+    
+      @Bean
+      public PlatformTransactionManager transactionManager() {
+    
+        JpaTransactionManager txManager = new JpaTransactionManager();
+        txManager.setEntityManagerFactory(entityManagerFactory());
+        return txManager;
+      }
+```

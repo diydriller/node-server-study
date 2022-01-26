@@ -1,13 +1,20 @@
 spring:
   datasource:
-    url: jdbc:h2:tcp://localhost/~/spring_jpa
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
+    url: jdbc:mysql://localhost:3306/spring_jpa
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialization-mode: always
+    hikari:
+      connectionTimeout: 30000
+      maximumPoolSize: 10
+      maxLifetime: 1800000
+
   jpa:
     hibernate:
       ddl-auto: create
     show_sql: true
+    defer-datasource-initialization: true
 
 logging.level:
   org.hibernate.SQL: debug

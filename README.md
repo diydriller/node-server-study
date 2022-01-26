@@ -1,4 +1,4 @@
-## 에러정리
+## 작업 정리
 * [jpa](./jpa.md)
 * [querydsl](./querydsl.md)
 * [spring](./spring.md)
@@ -31,6 +31,7 @@
 * [sql injection란](데이터베이스/sql_injection.md)
 * [jpa](데이터베이스/jpa.md)
 * [트랜잭션](./데이터베이스/트랜잭션.md)
+* [redis](./데이터베이스/redis.md)
 
 ## 자바
 #### 코드 정리
