@@ -1,0 +1,32 @@
+version: "3.7"
+
+services: 
+  docker_mysql_master:
+    container_name: "docker_mysql_master"
+    image: mysql
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+      - TZ=Asia/Seoul
+    volumes:
+      - ./docker_data/mysql_master:/var/lib/mysql
+      - ./docker_conf/mysql_master:/etc/mysql/conf.d
+      - ./docker_init/mysql_master:/docker-entrypoint-initdb.d
+    ports:
+      - "3300:3306"
+    restart: always
+  
+  docker_mysql_slave_1:
+    container_name: "docker_mysql_slave_1"
+    image: mysql
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+      - TZ=Asia/Seoul
+    volumes:
+      - ./docker_data/mysql_slave_1:/var/lib/mysql
+      - ./docker_conf/mysql_slave_1:/etc/mysql/conf.d
+      - ./docker_init/mysql_slave_1:/docker-entrypoint-initdb.d
+    ports:
+      - "3301:3306"
+    restart: always
+    depends_on:
+      - docker_mysql_master

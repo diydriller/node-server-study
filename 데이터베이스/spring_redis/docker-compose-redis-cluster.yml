@@ -1,0 +1,73 @@
+
+version: '3.7'
+
+networks:
+  app_subnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
+
+services:
+
+  docker_redis_cluster:
+    container_name: docker_redis_cluster
+    image: redis
+    ports:
+      - 6379:6379
+    command: redis-cli --cluster create 172.20.0.31:6379 172.20.0.32:6379 172.20.0.33:6379 --cluster-yes
+    networks:
+      app_subnet:
+        ipv4_address: 172.20.0.30
+    depends_on:
+      - docker_redis_cluster_master_1
+      - docker_redis_cluster_master_2
+      - docker_redis_cluster_master_3
+
+  docker_redis_cluster_master_1:
+    container_name: docker_redis_cluster_master_1
+    image: redis
+    ports:
+      - 6300:6379
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+      - ./docker_data/redis_cluster_master_1:/data
+      - ./docker_conf/redis_cluster_master_1/redis_cluster_master_1.conf:/usr/local/etc/redis/redis.conf
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    networks:
+      app_subnet:
+        ipv4_address: 172.20.0.31
+    restart: always
+
+  docker_redis_cluster_master_2:
+    container_name: docker_redis_cluster_master_2
+    image: redis
+    ports:
+      - 6301:6379
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+      - ./docker_data/redis_cluster_master_2:/data
+      - ./docker_conf/redis_cluster_master_2/redis_cluster_master_2.conf:/usr/local/etc/redis/redis.conf
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    networks:
+      app_subnet:
+        ipv4_address: 172.20.0.32
+    restart: always
+
+  docker_redis_cluster_master_3:
+    container_name: docker_redis_cluster_master_3
+    image: redis
+    ports:
+      - 6302:6379
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+      - ./docker_data/redis_cluster_master_3:/data
+      - ./docker_conf/redis_cluster_master_3/redis_cluster_master_3.conf:/usr/local/etc/redis/redis.conf
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    networks:
+      app_subnet:
+        ipv4_address: 172.20.0.33
+    restart: always

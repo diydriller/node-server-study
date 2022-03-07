@@ -1,0 +1,32 @@
+
+version: '3.7'
+
+
+services:
+  docker_redis_master:
+    container_name: docker_redis_master
+    image: redis
+    ports:
+      - 6300:6379
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+      - ./docker_data/redis_master:/data
+      - ./docker_conf/redis_master/redis_master.conf:/usr/local/etc/redis/redis.conf
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    restart: always
+
+  docker_redis_slave_1:
+    container_name: docker_redis_slave_1
+    image: redis
+    ports:
+      - 6301:6379
+    command: redis-server /usr/local/etc/redis/redis.conf --slaveof docker_redis_master 6379
+    volumes:
+      - ./docker_data/redis_slave_1:/data
+      - ./docker_conf/redis_slave_1/redis_slave_1.conf:/usr/local/etc/redis/redis.conf
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    depends_on:
+      - docker_redis_master
+    restart: always

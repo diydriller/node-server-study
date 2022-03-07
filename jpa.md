@@ -19,9 +19,12 @@ stackoverflow 에러가 발생한다. 양방향으로 매핑된 연관관계를 
 이후로 server모드로 jdbc:h2:tcp://localhost/~/database명으로 접속한다.
 
 * ### 데이터베이스 초기화
-* classpath에 schema.sql과 data.sql파일을 넣어주고 다음 설정을 해준다.
+* classpath에 schema.sql과 data.sql파일을 넣어주고 첫번째 설정을 통해 sql 스크립트 기반
+초기화를 한다. 두번째 설정은 sql 스크립트 기반 초기화를 JPA 빈이 생성된 이후로 연기한다. 
 ```java
-    spring.datasouce.initialization-mode=always
+    // spring.datasouce.initialization-mode=always  (spring boot 2.5에서 deprecated)
+    spring.sql.init.mode=always
+            
     spring.jpa.defer-datasource-initialization=true
 ```
 
