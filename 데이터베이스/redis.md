@@ -49,6 +49,17 @@
 파일에 기록된다. rewrite 기능을 사용하면 특정시점에 로그파일의 데이터를 다시 써서
 파일의 크기를 줄일 수 있다.
 
+## 5. sentinel
+* master와 slave 간 데이터 동기화를 비동기로 진행한다.
+* sentinel은 master를 감시하며 sentinel간 투표를 통해 master의 장애여부를 판단하며 
+장애판단시 slave를 자동으로 master로 승격시킨다.
+* WAS에서 승격된 master를 사용하기위해서 HA proxy를 사용한다.
+
+## 6. cluster
+* 서버 여러개를 수평적으로 구성하고 hash sharding을 통해 데이터를 저장한다. 
+master에 장애발생시 slave를 자동으로 master로 승격시킨다.
+* master와 slave 간 데이터 동기화를 비동기로 진행한다.
+
 ## 인터뷰
 ### redis가 싱글스레드임에도 빠른 이유는?
 * 싱글스레드이므로 context switch 오버헤드가 절약되고 이벤트 루프 방식으로
