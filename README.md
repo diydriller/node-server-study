@@ -8,7 +8,7 @@
 * [mysql](./mysql.md)
 * [git](./git.md)
 
-## 웹
+## 1. 웹
 ### 코드 정리
 * [node auth](웹/node_auth)
 * [spring security](웹/spring_security)
@@ -16,7 +16,7 @@
 * [cors](웹/cors.md)
 * [보안](웹/보안.md)
 
-## 스프링
+## 2. 스프링
 #### 코드 정리
 * [spring springboot](./스프링/spring_springboot)
 * [spring webflux](./스프링/spring_webflux)
@@ -26,7 +26,7 @@
 * [servlet](./스프링/servlet.md)
 * [mvc](./스프링/mvc.md)
 
-## 데이터베이스
+## 3. 데이터베이스
 #### 코드 정리
 * [spring redis](./데이터베이스/spring_redis)
 * [redis sentinel](./데이터베이스/redis_sentinel)
@@ -38,7 +38,7 @@
 * [redis](./데이터베이스/redis.md)
 
 
-## msa
+## 4. msa
 #### 코드 정리
 * [spring cloud](./msa/spring_cloud)
 * [spring camel](./msa/spring_camel)
@@ -46,7 +46,7 @@
 #### 개념 정리
 * [nginx란](./msa/nginx.md)
 
-## 소켓
+## 5. 소켓
 #### 코드 정리
 * [java tcp socket](./소켓/java_tcp_socket)
 #### 개념 정리

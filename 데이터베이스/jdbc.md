@@ -21,3 +21,7 @@ connection을 만들어서 pool을 생성하고 pool로부터 Connection 객체�
 * database 접속정보를 가진 DataSource를 주입받아서 jdbc template 메서드를 이용해서
 쿼리를 수행하고 RowMapper 객체를 통해 쿼리결과값을 객체로 매핑한다.
 
+## 인터뷰
+### Statement와 PreparedStatement 차이?
+* statement를 사용하면 쿼리문장분석 - 컴파일 - 실행 과정을 거쳐 쿼리를 수행한다.
+PreparedStatement를 사용하면 처음 1번만 3단계를 거쳐 쿼리를 수행하고 이후에는 캐시를 사용한다.
