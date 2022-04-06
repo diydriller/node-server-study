@@ -23,5 +23,5 @@ connection을 만들어서 pool을 생성하고 pool로부터 Connection 객체�
 
 ## 인터뷰
 ### Statement와 PreparedStatement 차이?
-* statement를 사용하면 쿼리문장분석 - 컴파일 - 실행 과정을 거쳐 쿼리를 수행한다.
+* statement를 사용하면 데이터베이스에서 쿼리문장분석 - 컴파일 - 실행 과정을 거쳐 쿼리를 수행한다.
 PreparedStatement를 사용하면 처음 1번만 3단계를 거쳐 쿼리를 수행하고 이후에는 캐시를 사용한다.
